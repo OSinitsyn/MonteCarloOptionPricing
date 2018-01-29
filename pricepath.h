@@ -17,7 +17,12 @@
 *     N(0, 1) - the standard normal
 *
 * PUBLIC MEMBER FUNCTIONS :
-*   void seedGenerator(unsigned seed)  - seed the random number generator 
+*   void seedGenerator(unsigned seed)  - seed the random number generator
+*   void setS0(double S0) - set current stock price
+*   void setSigma(double sigma) - set volatility of the stock price
+*   void setRate(double r) - set risk-free rate
+*   void setStep(double dt) - set time step
+*   void setNSteps(int nSteps) - set number of time steps 
 *   void generatePrices()  -  generate stock prices for the given set of parameters 
 *   const std::vector<double>& getPrices() const  -  return const reference to the generated price vector
 *
@@ -58,6 +63,11 @@ class PricePath {
     PricePath(double S0, double sigma, double r, double dt, int nSteps);
     ~PricePath();
     void seedGenerator(unsigned seed);
+    void setS0(double S0);
+    void setSigma(double sigma);
+    void setRate(double r);
+    void setStep(double dt);
+    void setNSteps(int nSteps);
     void generatePrices();
     const std::vector<double>& getPrices() const;
 };
